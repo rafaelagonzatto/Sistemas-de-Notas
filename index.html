@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academic Department System</title>
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<body>
+    <h1>Cadastro de Alunos</h1>
+    <form id="studentForm">
+
+        <input type="hidden" id="input_ra">
+
+        <label for="input_nome">Nome:</label><br>
+        <input type="text" id="input_nome" name="nome" required><br>
+        
+        <label for="input_email">E-mail:</label><br>
+        <input type="email" id="input_email" name="email" required><br>
+
+        <h2>Notas do Primeiro Bimestre</h2>
+
+        <label for="input_prova_1">Nota da Prova:</label><br>
+        <input type="number" id="input_prova_1" name="prova_1" step="0.01" max="8" required><br>
+
+        <label for="input_aep_1">Nota da AEP:</label><br>
+        <input type="number" id="input_aep_1" name="aep_1" step="0.01" max="1" required><br>
+
+        <label for="input_prova_integrada_1">Nota da Prova Integrada:</label><br>
+        <input type="number" id="input_prova_integrada_1" name="prova_integrada_1" step="0.01" max="1" required><br>
+
+        <h2>Notas do Segundo Bimestre</h2>
+
+        <label for="input_prova_2">Nota da Prova:</label><br>
+        <input type="number" id="input_prova_2" name="prova_2" step="0.01" max="8" required><br>
+
+        <label for="input_aep_2">Nota da AEP:</label><br>
+        <input type="number" id="input_aep_2" name="aep_2" step="0.01" max="1" required><br>
+
+        <label for="input_prova_integrada_2">Nota da Prova Integrada:</label><br>
+        <input type="number" id="input_prova_integrada_2" name="prova_integrada_2" step="0.01" max="1" required><br>
+
+        <button type="submit">Cadastrar</button>
+
+    </form>
+
+    <table id="studentTable">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>RA</th>
+                <th>E-mail</th>
+                <th>Média 1</th>
+                <th>Média 2</th>
+                <th>Média Final</th>
+                <th>Status</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
