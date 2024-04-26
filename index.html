@@ -6,11 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academic Department System</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-</head>
+    <script src="./index.js"></script>
+    </head>
 
 <body>
     <h1>Cadastro de Alunos</h1>
-    <form id="studentForm">
 
         <input type="hidden" id="input_ra">
 
@@ -42,9 +42,8 @@
         <label for="input_prova_integrada_2">Nota da Prova Integrada:</label><br>
         <input type="number" id="input_prova_integrada_2" name="prova_integrada_2" step="0.01" max="1" required><br>
 
-        <button type="submit">Cadastrar</button>
+        <button  onclick="adicionaDadosAluno()">Cadastrar</button>
 
-    </form>
 
     <table id="studentTable">
         <thead>
