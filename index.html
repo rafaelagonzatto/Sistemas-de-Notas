@@ -6,62 +6,203 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Academic Department System</title>
     <link rel="stylesheet" type="text/css" href="styles.css">
-    <script src="./index.js"></script>
     </head>
+    <script src="https://cdn.tailwindcss.com"></script>
 
-<body>
-    <h1>Cadastro de Alunos</h1>
-
-        <input type="hidden" id="input_ra">
-
-        <label for="input_nome">Nome:</label><br>
-        <input type="text" id="input_nome" name="nome" required><br>
+<body class="w-full flex flex-col items-center justify-start gap-6 min-h-[100vh]">
+    <h1 class="text-3xl mt-12 ">Cadastro de Alunos</h1>
+        <p id="num" class="text-lg ">Numero de alunos cadastrados: 0</p>
         
-        <label for="input_email">E-mail:</label><br>
-        <input type="email" id="input_email" name="email" required><br>
-
-        <h2>Notas do Primeiro Bimestre</h2>
-
-        <label for="input_prova_1">Nota da Prova:</label><br>
-        <input type="number" id="input_prova_1" name="prova_1" step="0.01" max="8" required><br>
-
-        <label for="input_aep_1">Nota da AEP:</label><br>
-        <input type="number" id="input_aep_1" name="aep_1" step="0.01" max="1" required><br>
-
-        <label for="input_prova_integrada_1">Nota da Prova Integrada:</label><br>
-        <input type="number" id="input_prova_integrada_1" name="prova_integrada_1" step="0.01" max="1" required><br>
-
-        <h2>Notas do Segundo Bimestre</h2>
-
-        <label for="input_prova_2">Nota da Prova:</label><br>
-        <input type="number" id="input_prova_2" name="prova_2" step="0.01" max="8" required><br>
-
-        <label for="input_aep_2">Nota da AEP:</label><br>
-        <input type="number" id="input_aep_2" name="aep_2" step="0.01" max="1" required><br>
-
-        <label for="input_prova_integrada_2">Nota da Prova Integrada:</label><br>
-        <input type="number" id="input_prova_integrada_2" name="prova_integrada_2" step="0.01" max="1" required><br>
-
-        <button  onclick="adicionaDadosAluno()">Cadastrar</button>
+        <div class="relative h-10 w-[20%] min-w-[200px]">
+            <input
+            id="input_nome"
+              class="peer h-full w-full rounded-[7px] border border-blue-gray-200 bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+              placeholder=" "
+            />
+            <label class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+             Nome
+            </label>
+          </div>
+        
 
 
-    <table id="studentTable">
-        <thead>
-            <tr>
-                <th>Nome</th>
-                <th>RA</th>
-                <th>E-mail</th>
-                <th>Média 1</th>
-                <th>Média 2</th>
-                <th>Média Final</th>
-                <th>Status</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
+        <div class="relative h-10 w-[20%] min-w-[200px]">
+            <input
+            
 
-    <script src="script.js"></script>
+            id="input_email"
+              class="peer h-full w-full rounded-[7px] border border-blue-gray-200 bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+              placeholder=" "
+            />
+            <label class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+             Email
+            </label>
+          </div>
+
+          <div class="relative h-10 w-[20%] min-w-[200px]">
+            <input
+            id="input_ra"
+              class="peer h-full w-full rounded-[7px] border border-blue-gray-200 bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+              placeholder=" "
+            />
+            <label class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+             RA
+            </label>
+          </div>
+        
+
+
+        <h2 class="text-lg">Notas do Primeiro Bimestre</h2>
+
+        <div class="relative h-10 w-[20%] min-w-[200px]">
+            <input
+            type="number"
+
+            id="input_prova_1"
+              class="peer h-full w-full rounded-[7px] border border-blue-gray-200 bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+              placeholder=" "
+            />
+            <label class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                Nota da Prova
+            </label>
+          </div>
+
+        <div class="relative h-10 w-[20%] min-w-[200px]">
+            <input
+            type="number"
+
+            id="input_eap_1"
+              class="peer h-full w-full rounded-[7px] border border-blue-gray-200 bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+              placeholder=" "
+            />
+            <label class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                Nota EAP:
+            </label>
+          </div>
+
+          <div class="relative w-[20%] h-10 min-w-[200px]">
+            <input
+            type="number"
+
+            id="input_prova_integrada_1"
+              class="peer h-full w-full rounded-[7px] border border-blue-gray-200 bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+              placeholder=" "
+            />
+            <label class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                Nota da Prova Integrada:
+            </label>
+          </div>
+
+
+        <h2 class="text-lg">Notas do Segundo Bimestre</h2>
+        <div class="relative h-10 w-[20%] min-w-[200px]">
+            <input
+            type="number"
+            id="input_prova_2"
+              class="peer h-full w-full rounded-[7px] border border-blue-gray-200 bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+              placeholder=" "
+            />
+            <label class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                Nota da Prova
+            </label>
+          </div>
+
+        <div class="relative h-10 w-[20%] min-w-[200px]">
+            <input
+            type="number"
+
+            id="input_eap_2"
+              class="peer h-full w-full rounded-[7px] border border-blue-gray-200 bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+              placeholder=" "
+            />
+            <label class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                Nota EAP:
+            </label>
+          </div>
+
+          <div class="relative h-10 w-[20%] min-w-[200px]">
+            <input
+            type="number"
+
+            id="input_prova_integrada_2"
+              class="peer h-full w-full rounded-[7px] border border-blue-gray-200 bg-transparent px-3 py-2.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border placeholder-shown:border-blue-gray-200 placeholder-shown:border-t-blue-gray-200 focus:border-2 focus:border-pink-500 focus:border-t-transparent focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+              placeholder=" "
+            />
+            <label class="before:content[' '] after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-400 transition-all before:pointer-events-none before:mt-[6.5px] before:mr-1 before:box-border before:block before:h-1.5 before:w-2.5 before:rounded-tl-md before:border-t before:border-l before:border-blue-gray-200 before:transition-all after:pointer-events-none after:mt-[6.5px] after:ml-1 after:box-border after:block after:h-1.5 after:w-2.5 after:flex-grow after:rounded-tr-md after:border-t after:border-r after:border-blue-gray-200 after:transition-all peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[3.75] peer-placeholder-shown:text-blue-gray-500 peer-placeholder-shown:before:border-transparent peer-placeholder-shown:after:border-transparent peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-pink-500 peer-focus:before:border-t-2 peer-focus:before:border-l-2 peer-focus:before:border-pink-500 peer-focus:after:border-t-2 peer-focus:after:border-r-2 peer-focus:after:border-pink-500 peer-disabled:text-transparent peer-disabled:before:border-transparent peer-disabled:after:border-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                Nota da Prova Integrada:
+            </label>
+          </div>
+
+          <div class="w-[30%] flex justify-center">
+            <button 
+            id="btn"
+            class="
+            flex 
+            gap-2
+            items-center
+            text-white 
+            bg-gradient-to-br 
+            from-green-400 
+            to-blue-600 
+            hover:bg-gradient-to-bl 
+            focus:ring-4    
+            focus:outline-none 
+            focus:ring-green-200 
+            dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
+            
+            onclick="adicionarDadosAluno()"
+            >
+            
+            <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAV9JREFUSEvtlEsrRWEUhp83Y5ciuU6OPyAz8xOlDJGJkoE/IGYuM5RfQJm6jEVkZqz8AJno5ERJMX716dviXPfeMpFvsvdgtZ79Pe9aW/zy0S/3548CbA8Ae8BoVHgFLEq6z6q0SpHtPuAG6Kpo9ggMSyplgdQCHAFT8QZrQAsQngvAsaTpnwKegQ5gMFFiuwDcAmVJPT8FlIFuoCDpLjRrBrDtUCepykgjRbvAelS0AcwDB5JmK2+QFdALXAOVKkK4I5LCDb+dTICopA1YBuZip31gW9Jb0jlpWi+PRFfuTc4NsD0Z3Q8B7fELX+IUrUo6ya3I9gqw2WQMlyTtfK1JlYHtceAMeAAC6FxSeA9jGgIfA7Zi+EVJl5V5NBxT2xdAEZiRFLa56tgOW3wInEqaSLNwnyHbThasVdJrHUAn8ASUJPVnBdTdxrS+awFzj2mar//4faQtzFv3D2hq7h2hz44Z5J3uawAAAABJRU5ErkJggg=="/>
+        
+            Cadastrar
+
+        </button>
+          
+            <button 
+            id="btnCancel"
+            class="text-white 
+            flex
+            items-center
+            gap-2
+            bg-gradient-to-br 
+            from-pink-500 to-orange-400 
+            hover:bg-gradient-to-bl focus:ring-4
+             focus:outline-none focus:ring-pink-200
+              dark:focus:ring-pink-800 font-medium rounded-lg text-sm px-5 
+              py-2.5 text-center me-2 mb-2 hidden" onclick="cancelEdit()">
+            
+              <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAAXNSR0IArs4c6QAAAn1JREFUSEvFlVmIjmEUx39/F5ZoLOVChDtKDamx1yCMJReW4sKSmqKJKCWlLOVOIVu4kLhQiiaRrGWNZIksWUpxpRSNLJGjv55ver9vvvedcTE5V289531+5znnf84RnWzq5PspBEREN2ABMBMYCQwFAngLPALOA6cl/cwLNBcQEbOAA+nSooe+BlZJulLNqSogIrYAW9MPH4H9wF3gAfAdGAXMARYDg5Lfekk7KyFtABHhiw2wHQQ2SvpcLbqI6AIsBI4APYG1kvZkfcsAETEXOJNxuAdMzwOU/CJiDHALMLBe0s3SWSsgInoBL4EBwHJgJTABMGSqpC9FhYiIdcAu4AVQWyp8FtCUcn1dUn0CXgbGpvxPK4JERNekLgc4T1KzA8oCzgGzHb2kYz5MkIvAeOBOSlfuSyJiO7AJOCzJGSgDvAcGAoMlvcvk16m7BIxrDxIRk4AbwENJoysBX4EeLpQkN1OrdTRdEdEPsKw/SepbCWgBHG2NJH+XWUcgEdEf+AC0SKqpBLj6w5ICnuTo3gGUCn8baMgWPiKmAFeBZ5JGVAJOpM7cIGlHniTTS64BzrG72xJ2ei2K1cBe4LikZZWApYDV8woYLul3AaR3itQQN1UD8C0NwFpgkaSTlQAX+DkwBFgh6Wg7jWWI1VWXlHMK2J2a1Y32owyQnjgDuJCiqZP09B8gdvWrJ0uyVP9atWHnRnHDeMAtkXS2IFV9ANerMfmskbQv6583rjcD25Kjl4sF4OXyOE1NL5+JgMeL9e6+8SR1gcusaOF43h9K3V2UKS+cRklWVhtrb2V2B+anGWV1WACO9g1wH/Ccapb0Ky+C/7v0i/LS0bM/6Ir3GeCyVPkAAAAASUVORK5CYII="/>
+            
+              Cancelar
+            </button>
+        </div>
+
+                <table class=" text-sm text-left text-gray-500 w-[%40] mb-12">
+                    <thead class=" w-full text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+
+                        <th scope="col" class="py-3 px-6">Nome</th>
+                        <th scope="col" class="py-3 px-6">RA</th>
+                        <th scope="col" class="py-3 px-6">Email</th>
+                        <th scope="col" class="py-3 px-6">Média 1</th>
+                        <th scope="col" class="py-3 px-6">Média 2</th>
+                        <th scope="col" class="py-3 px-6">EAP 1</th>
+                        <th scope="col" class="py-3 px-6">EAP 2</th>
+                        <th scope="col" class="py-3 px-6">Integrada 1</th>
+                        <th scope="col" class="py-3 px-6">Integrada 2</th>
+                        <th scope="col" class="py-3 px-6">Prova 1</th>
+                        <th scope="col" class="py-3 px-6">Prova 2</th>
+                        <th scope="col" class="py-3 px-6">Média Final</th>
+                        <th scope="col" class="py-3 px-6">Status</th>
+                        <th scope="col" class="py-3 px-6">Ações</th>
+                    </tr>
+                    </thead>
+                    <tbody  id="studentTable"></tbody>
+                </table>
+
+
+
 </body>
 
+<script src="./index.js"></script>
 </html>
