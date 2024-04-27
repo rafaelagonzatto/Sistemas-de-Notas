@@ -1,5 +1,3 @@
-
-
 const rules = {
   rule1: (prova) => {
     return 0 <= prova && 8 >= prova 
